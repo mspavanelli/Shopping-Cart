@@ -1,13 +1,28 @@
+import { useState } from 'react'
+
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 
 import { FiSearch } from 'react-icons/fi'
 
-const Search = () => {
+interface SearchProps {
+  searchProduct(term: string): {}
+}
+
+const Search = ({ searchProduct }: SearchProps) => {
+  const [searchTerm, setSearchTerm] = useState('')
+
   return (
-    <InputGroup maxWidth='lg' display='block' mx='auto'>
-      <InputLeftElement children={<FiSearch />} pointerEvents='none' />
-      <Input placeholder='Search' />
-    </InputGroup>
+    <form name='search-form' onSubmit={() => searchProduct(searchTerm)}>
+      <InputGroup data-testid='search' maxWidth='lg' display='block' mx='auto'>
+        <InputLeftElement children={<FiSearch />} pointerEvents='none' />
+        <Input
+          type='search'
+          placeholder='Search'
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </InputGroup>
+    </form>
   )
 }
 

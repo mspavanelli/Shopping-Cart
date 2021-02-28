@@ -5,15 +5,19 @@ import Search from './Search'
 
 const searchProduct = jest.fn()
 
+const renderSearchComponent = () => {
+  render(<Search searchProduct={searchProduct} />)
+}
+
 describe('Search', () => {
   it('should render a form', () => {
-    render(<Search searchProduct={searchProduct} />)
+    renderSearchComponent()
 
     expect(screen.getByRole('form')).toBeInTheDocument()
   })
 
   it('should call props.searchProduct() when form is submitted', () => {
-    render(<Search searchProduct={searchProduct} />)
+    renderSearchComponent()
 
     const form = screen.getByRole('form')
 
@@ -23,7 +27,7 @@ describe('Search', () => {
   })
 
   it('should call props.searchProduct() with user input', () => {
-    render(<Search searchProduct={searchProduct} />)
+    renderSearchComponent()
 
     const userInput = 'example name'
 
@@ -37,7 +41,7 @@ describe('Search', () => {
   })
 
   it('should search field with type search', () => {
-    render(<Search searchProduct={searchProduct} />)
+    renderSearchComponent()
 
     const searchField = screen.getByRole('searchbox')
 

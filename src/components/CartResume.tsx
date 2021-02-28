@@ -17,7 +17,7 @@ const CartResume = () => {
 
   return (
     <Drawer isOpen={true} onClose={onClose} size='sm'>
-      <DrawerOverlay>
+      <DrawerOverlay data-testid='cart-resume'>
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>CartResume</DrawerHeader>

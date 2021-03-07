@@ -14,7 +14,7 @@ import { FiMapPin, FiShoppingCart } from 'react-icons/fi'
 
 const Header = () => {
   return (
-    <Box bg='gray.200'>
+    <Box data-testid='page-header' bg='gray.200'>
       <Container
         maxWidth={{
           base: 'container.sm',

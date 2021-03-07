@@ -1,12 +1,20 @@
 import Layout from 'components/layout'
 import Search from 'components/Search'
 import CartResume from 'components/CartResume'
+import ProductCard from 'components/ProductCard'
 
 const Home = () => (
   <Layout>
-    <Search />
+    <Search
+      searchProduct={(term: string) => {
+        return term
+      }}
+    />
     <CartResume />
-    <h1>Main</h1>
+    <ProductCard
+      product={{ name: 'Produto', price: '2000' }}
+      addToCart={() => {}}
+    />
   </Layout>
 )
 
